@@ -86,14 +86,32 @@
 
     <h2>What Unfurl sends over the network</h2>
     <p>
-      <strong>Nothing.</strong> Unfurl makes no network requests of any kind —
+      <strong>Nothing, by default.</strong> Capture, annotation, PNG/PDF
+      export, and license verification all happen locally in your browser —
       no analytics, no crash reporting, no telemetry, no "phone home" of any
-      form. Everything — capture, annotation, export, and license
-      verification — happens locally in your browser.
+      form.
+    </p>
+    <p>
+      The one exception is the optional <strong>"Save to Google Drive"</strong>
+      button, which only ever does anything if you click it. When you do,
+      your browser opens Google's own sign-in/consent screen and, once you
+      approve it, uploads that one file directly from your browser to your
+      Google Drive using Google's API. Unfurl has no server of its own in
+      that path — it never receives, stores, or has access to the file or
+      your Google credentials at any point; the upload goes straight from
+      you to Google, using your own Google sign-in. The permission Unfurl
+      requests for this (<code>drive.file</code>) only ever lets it see or
+      touch files it uploads itself — it cannot read anything else already
+      in your Drive.
     </p>
 
     <h2>What Unfurl shares with third parties</h2>
-    <p>Nothing. There are no third parties involved in how Unfurl works.</p>
+    <p>
+      Nothing, unless you use "Save to Google Drive" — in which case the
+      file you chose to save goes to Google, because that's the point of the
+      feature, and only because you explicitly triggered it. No other data
+      about you or your usage is ever shared with anyone.
+    </p>
 
     <h2>Permissions Unfurl requests, and why</h2>
     <ul>
@@ -103,6 +121,7 @@
       <li><code>storage</code> — for local settings and license state, described above.</li>
       <li><code>contextMenus</code> — to add a right-click "Capture" entry.</li>
       <li><code>clipboardWrite</code> — for the "Copy to clipboard" export option.</li>
+      <li><code>identity</code> — to sign you into Google, only if you click "Save to Google Drive".</li>
     </ul>
 
     <h2>Changes to this policy</h2>
