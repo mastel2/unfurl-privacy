@@ -92,25 +92,44 @@
       form.
     </p>
     <p>
-      The one exception is the optional <strong>"Save to Google Drive"</strong>
-      button, which only ever does anything if you click it. When you do,
-      your browser opens Google's own sign-in/consent screen and, once you
-      approve it, uploads that one file directly from your browser to your
-      Google Drive using Google's API. Unfurl has no server of its own in
-      that path — it never receives, stores, or has access to the file or
-      your Google credentials at any point; the upload goes straight from
-      you to Google, using your own Google sign-in. The permission Unfurl
-      requests for this (<code>drive.file</code>) only ever lets it see or
-      touch files it uploads itself — it cannot read anything else already
-      in your Drive.
+      The exceptions are three optional buttons in the editor —
+      <strong>"Save to Google Drive"</strong>, <strong>"Save to Google
+      Photos"</strong>, and <strong>"Save to OneDrive"</strong> — which only
+      ever do anything if you click them. When you do, your browser opens
+      that provider's own sign-in/consent screen and, once you approve it,
+      uploads that one file directly from your browser to your account using
+      that provider's own API. Unfurl has no server of its own in any of
+      these paths — it never receives, stores, or has access to the file or
+      your Google/Microsoft credentials at any point; each upload goes
+      straight from you to the provider, using your own sign-in with them.
+      The permissions Unfurl requests for these are deliberately narrow:
     </p>
+    <ul>
+      <li>
+        <strong>Save to Google Drive</strong> — scope <code>drive.file</code>,
+        which only ever lets Unfurl see or touch files it uploads itself; it
+        cannot read anything else already in your Drive.
+      </li>
+      <li>
+        <strong>Save to Google Photos</strong> — scope
+        <code>photoslibrary.appendonly</code>, which only ever lets Unfurl
+        add items it uploads; it cannot read, list, or see anything already
+        in your Photos library.
+      </li>
+      <li>
+        <strong>Save to OneDrive</strong> — scope <code>Files.ReadWrite</code>
+        via Microsoft's own sign-in, used only for the one upload request
+        each time you click the button.
+      </li>
+    </ul>
 
     <h2>What Unfurl shares with third parties</h2>
     <p>
-      Nothing, unless you use "Save to Google Drive" — in which case the
-      file you chose to save goes to Google, because that's the point of the
-      feature, and only because you explicitly triggered it. No other data
-      about you or your usage is ever shared with anyone.
+      Nothing, unless you use one of the three "Save to…" buttons above — in
+      which case the file you chose to save goes to the provider you picked,
+      because that's the point of the feature, and only because you
+      explicitly triggered it. No other data about you or your usage is ever
+      shared with anyone.
     </p>
 
     <h2>Permissions Unfurl requests, and why</h2>
@@ -121,7 +140,10 @@
       <li><code>storage</code> — for local settings and license state, described above.</li>
       <li><code>contextMenus</code> — to add a right-click "Capture" entry.</li>
       <li><code>clipboardWrite</code> — for the "Copy to clipboard" export option.</li>
-      <li><code>identity</code> — to sign you into Google, only if you click "Save to Google Drive".</li>
+      <li>
+        <code>identity</code> — to sign you into Google or Microsoft, only if you click one of the "Save to…" cloud
+        buttons.
+      </li>
     </ul>
 
     <h2>Changes to this policy</h2>
