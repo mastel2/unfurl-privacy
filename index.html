@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Unfurl — Privacy Policy</title>
+    <style>
+      body {
+        font: 15px/1.6 system-ui, sans-serif;
+        max-width: 640px;
+        margin: 40px auto;
+        padding: 0 20px;
+        color: #1f2937;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      h2 {
+        font-size: 17px;
+        margin-top: 32px;
+      }
+      .updated {
+        color: #6b7280;
+        font-size: 13px;
+      }
+      code {
+        background: #f3f4f6;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Unfurl — Privacy Policy</h1>
+    <p class="updated">Last updated: 2026-09-07</p>
+
+    <p>
+      Unfurl is a browser extension for capturing, annotating, and exporting
+      full-page screenshots. This page describes exactly what data Unfurl
+      accesses, stores, and sends — in full, not as marketing copy.
+    </p>
+
+    <h2>What Unfurl accesses</h2>
+    <p>
+      Unfurl only reads the content of a web page when you explicitly trigger
+      a capture (clicking the toolbar button, using the keyboard shortcut, or
+      the right-click menu). It does not run on pages you haven't asked it to
+      capture, and it does not read page content in the background.
+    </p>
+
+    <h2>What Unfurl stores</h2>
+    <p>Everything Unfurl stores stays on your device, in your browser's local storage:</p>
+    <ul>
+      <li>
+        <strong>Captured screenshots</strong> — held in the browser's IndexedDB
+        until you export them (as PNG/PDF) or close the capture, then
+        discarded.
+      </li>
+      <li>
+        <strong>Settings</strong> — your preferences (capture delay, default
+        export format, etc.) via <code>chrome.storage.local</code>.
+      </li>
+      <li>
+        <strong>License key</strong> (if you activate Pro features) — stored
+        locally and verified entirely on your device using public-key
+        cryptography. No license key, account, or identifying information is
+        ever sent to any server.
+      </li>
+    </ul>
+
+    <h2>What Unfurl sends over the network</h2>
+    <p>
+      <strong>Nothing.</strong> Unfurl makes no network requests of any kind —
+      no analytics, no crash reporting, no telemetry, no "phone home" of any
+      form. Everything — capture, annotation, export, and license
+      verification — happens locally in your browser.
+    </p>
+
+    <h2>What Unfurl shares with third parties</h2>
+    <p>Nothing. There are no third parties involved in how Unfurl works.</p>
+
+    <h2>Permissions Unfurl requests, and why</h2>
+    <ul>
+      <li><code>activeTab</code> — to read the page you're actively capturing, only when you trigger a capture.</li>
+      <li><code>scripting</code> — to inject the capture logic into that tab, on demand.</li>
+      <li><code>downloads</code> — to save your exported PNG/PDF files.</li>
+      <li><code>storage</code> — for local settings and license state, described above.</li>
+      <li><code>contextMenus</code> — to add a right-click "Capture" entry.</li>
+      <li><code>clipboardWrite</code> — for the "Copy to clipboard" export option.</li>
+    </ul>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If this policy ever changes, the "Last updated" date above will change
+      with it, and any change will be reflected in the extension's store
+      listing before it takes effect.
+    </p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy can be sent to the developer contact listed on the extension's store listing.</p>
+  </body>
+</html>
